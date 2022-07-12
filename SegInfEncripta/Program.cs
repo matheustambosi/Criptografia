@@ -11,8 +11,10 @@ namespace SegInfEncripta
     {
         static void Main(string[] args)
         {
+            //source.txt
             string texto = System.IO.File.ReadAllText(@"C:\Users\mathe\Desktop\SegInfEncripta\SegInfEncripta\Arquivos\source.txt");
 
+            //private.txt
             string[] chave = System.IO.File.ReadAllLines(@"C:\Users\mathe\Desktop\SegInfEncripta\SegInfEncripta\Arquivos\private.txt");
 
             Criptografar(texto, chave);
@@ -31,6 +33,7 @@ namespace SegInfEncripta
 
             var chunkSize = TextChunk.BlockSize(modulus);
 
+            //dest.txt
             System.IO.File.Delete(@"C:\Users\mathe\Desktop\SegInfEncripta\SegInfEncripta\Arquivos\dest.txt");
 
             var teste = textoBase64.Split(textoBase64, chunkSize);
@@ -42,6 +45,7 @@ namespace SegInfEncripta
                 list.Add(encodedChunk.ToString());
             }
 
+            //dest.txt
             System.IO.File.WriteAllLines(@"C:\Users\mathe\Desktop\SegInfEncripta\SegInfEncripta\Arquivos\dest.txt", list);
         }
 

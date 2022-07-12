@@ -10,8 +10,10 @@ namespace SegInfDecripta
     {
         static void Main(string[] args)
         {
+            //private.txt
             string[] chave = System.IO.File.ReadAllLines(@"C:\Users\mathe\Desktop\SegInfEncripta\SegInfEncripta\Arquivos\private.txt");
 
+            //source.txt
             string[] texto = System.IO.File.ReadAllLines(@"C:\Users\mathe\Desktop\SegInfEncripta\SegInfEncripta\Arquivos\source.txt");
 
             Descriptografar(texto, chave);
@@ -35,8 +37,10 @@ namespace SegInfDecripta
 
             byte[] bytes = System.Convert.FromBase64String(stringBase64);
 
+            //dest.txt
             System.IO.File.Delete(@"C:\Users\mathe\Desktop\SegInfEncripta\SegInfEncripta\Arquivos\dest.txt");
 
+            //dest.txt
             System.IO.File.WriteAllText(@"C:\Users\mathe\Desktop\SegInfEncripta\SegInfEncripta\Arquivos\dest.txt", Encoding.ASCII.GetString(bytes));
         }
     }
